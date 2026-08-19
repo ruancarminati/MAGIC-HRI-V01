@@ -1,7 +1,7 @@
 # MAGIC-HRI: Multimodal Activity, Gesture, and Intention Collection for HRI
 
 ## Overview
-The **MAGIC-HRI (Multimodal Activity, Gesture, and Intention Collection for HRI)** dataset was developed at the Applied Robotics Laboratory at UTFPR. It contains Electromyography (EMG) and Inertial Measurement Unit (IMU) signals recorded during human-robot collaboration tasks. It is designed to support research in safe Human-Robot Interaction (HRI), specifically targeting human action estimation and prediction in industrial settings.
+The **MAGIC-HRI (Multimodal Activity, Gesture, and Intention Collection for HRI)** dataset was developed at the Applied Robotics Laboratory at Federal University of Technology – Paraná (UTFPR). It contains Electromyography (EMG) and Inertial Measurement Unit (IMU) signals recorded during human-robot collaboration tasks. It is designed to support research in safe Human-Robot Interaction (HRI), specifically targeting human action estimation and prediction in industrial settings.
 
 ## Experimental Setup
 The data acquisition setup consists of a wearable gesture-recognition interface and a collaborative robotic arm:
@@ -42,7 +42,7 @@ Data files are named using the following convention to easily identify the conte
 
 * **`TT`**: Tool name or gesture category
 * **`MM`**: Movement name
-* **`SS`**: Period of acquisition (e.g., 01, 02, ...)
+* **`SS`**: Period of acquisition in seconds (e.g., 01, 02, ...)
 * **`PP`**: Person/Participant number (e.g., 01, 02, ...)
 * **`NN`**: Number of the movement sample (e.g., 01, 02, ...)
 
@@ -106,7 +106,7 @@ The `Codes` directory contains python scripts intended to serve as a baseline in
 ### 1. `feature_extraction.py`
 This script is responsible for traversing the dataset directory and preparing the raw signals. Its main steps are:
 * **Muscle Activation Detection:** Automatically finds the active segment of the movement by calculating the average energy across the EMG channels.
-* **Sliding Window:** Applies a sliding window approach (e.g., 1-second windows with 90% overlap) over the active signal segment.
+* **Sliding Window:** Applies a sliding window approach (e.g., 1-second windows with 50% overlap) over the active signal segment.
 * **Feature Engineering:** Extracts a rich set of mathematical, statistical, and spectral features (such as RMS, zero-crossings, sample entropy, median frequency, etc.) from both the EMG and IMU data.
 * **Data Output:** Saves all the extracted features into a structured `.csv` file, making it ready to be fed into classification algorithms.
 
